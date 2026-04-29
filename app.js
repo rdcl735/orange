@@ -132,27 +132,29 @@ faqItems.forEach(item => {
     });
 });
 
+
 // --- Modal de Login ---
 const loginModal = document.getElementById('loginModal');
 const btnLoginModal = document.getElementById('btnLoginModal');
 const closeLoginModal = document.getElementById('closeLoginModal');
 
-function openModal() {
-    loginModal.classList.add('active');
+window.openModal = function() {
+    if(loginModal) loginModal.classList.add('active');
 }
 
-function closeModal() {
-    loginModal.classList.remove('active');
+window.closeModal = function() {
+    if(loginModal) loginModal.classList.remove('active');
 }
 
-if (btnLoginModal) btnLoginModal.addEventListener('click', openModal);
-if (closeLoginModal) closeLoginModal.addEventListener('click', closeModal);
+if (btnLoginModal) btnLoginModal.addEventListener('click', window.openModal);
+if (closeLoginModal) closeLoginModal.addEventListener('click', window.closeModal);
 
 // Fecha modal ao clicar fora
+if(loginModal) {
     loginModal.addEventListener('click', (e) => {
-        if (e.target === loginModal) closeModal();
+        if (e.target === loginModal) window.closeModal();
     });
-});
+}
 
 // Função para exibir/ocultar formulários (chamada inline no HTML)
 window.toggleForm = function(id, btn) {
