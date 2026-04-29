@@ -30,4 +30,4 @@ Para que o site funcione corretamente com o seu próprio banco de dados:
 4. Substitua a `SUPABASE_ANON_KEY` no arquivo `app.js`.
 
 ---
-Desenvolvido com 🧡 para a Orange.
+Desenvolvido com 🍊 por rdcl735.
