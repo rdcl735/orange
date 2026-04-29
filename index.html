@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-width=1.0">
-    <title>Orange - Suco natural de verdade, direto do parque</title>
-    <meta name="description" content="Sem açúcar, sem conservantes. Só fruta. Refrescante, saudável e acessível no Parque Ibirapuera.">
-    
+    <title>Orange - Suco natural de verdade, direto no parque</title>
+    <meta name="description"
+        content="Sem açúcar, sem conservantes. Só fruta. Refrescante, saudável e acessível no Parque Ibirapuera.">
+
     <!-- SEO & OpenGraph (Compartilhamento em Redes Sociais) -->
     <meta property="og:title" content="Orange - Suco natural de verdade">
-    <meta property="og:description" content="Suco 100% natural direto do Parque Ibirapuera. Sem açúcar, sem conservantes.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:description"
+        content="Suco 100% natural direto no Parque Ibirapuera. Sem açúcar, sem conservantes.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=1200&q=80">
     <meta property="og:type" content="website">
 
     <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍊</text></svg>">
-    
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍊</text></svg>">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Icons (Phosphor Icons) -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    
+
     <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <!-- Header / Nav -->
@@ -37,7 +43,7 @@
             <a href="#" class="logo">
                 <i class="ph ph-orange-slice"></i> Orange
             </a>
-            
+
             <button class="mobile-menu-btn" id="menuToggle">
                 <i class="ph ph-list"></i>
             </button>
@@ -61,7 +67,7 @@
         <div class="hero-overlay"></div>
         <div class="container hero-content">
             <span class="badge"><i class="ph-fill ph-drop"></i> Feito diariamente</span>
-            <h1>Suco natural de verdade, <br>direto do parque 🍊</h1>
+            <h1>Suco natural de verdade, <br>direto no parque 🍊</h1>
             <p>Sem açúcar, sem conservantes. Só fruta.</p>
             <div class="hero-buttons">
                 <a href="#localizacao" class="btn btn-primary">Ver localização</a>
@@ -79,17 +85,21 @@
                     <h2>📍 Onde estamos</h2>
                     <p>Venha nos visitar no coração verde de São Paulo.</p>
                 </div>
-                
+
                 <div class="location-card">
                     <div class="location-info">
                         <i class="ph-fill ph-map-pin"></i>
                         <p><strong>Parque Ibirapuera, próximo ao Portão 3</strong><br>
-                        (Av. Pedro Álvares Cabral, s/n)<br>
-                        Entrada oficial da Fundação Bienal de São Paulo (Pavilhão Ciccillo Matarazzo).</p>
-                        <a href="https://maps.google.com/?q=Portão+3+Parque+Ibirapuera" target="_blank" class="btn btn-primary">Abrir no Maps</a>
+                            (Av. Pedro Álvares Cabral, s/n)<br>
+                            Entrada oficial da Fundação Bienal de São Paulo (Pavilhão Ciccillo Matarazzo).</p>
+                        <a href="https://maps.google.com/?q=Portão+3+Parque+Ibirapuera" target="_blank"
+                            class="btn btn-primary">Abrir no Maps</a>
                     </div>
                     <div class="location-map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.347587132924!2d-46.6579899!3d-23.5855018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59a60e0d5a37%3A0xcda6bceb8fb492a5!2sPort%C3%A3o%203%20-%20Parque%20Ibirapuera!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.347587132924!2d-46.6579899!3d-23.5855018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59a60e0d5a37%3A0xcda6bceb8fb492a5!2sPort%C3%A3o%203%20-%20Parque%20Ibirapuera!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
@@ -105,10 +115,14 @@
                     <div class="product-details">
                         <h2>Nossa Essência 🥤</h2>
                         <ul class="features-list">
-                            <li><i class="ph-fill ph-orange-slice text-orange"></i> <strong>100% fruta:</strong> Sem diluição, apenas o melhor da natureza.</li>
-                            <li><i class="ph-fill ph-x-circle text-orange"></i> <strong>0% açúcar:</strong> A doçura vem da própria fruta.</li>
-                            <li><i class="ph-fill ph-plant text-green"></i> <strong>0% conservantes:</strong> Feito hoje, para beber hoje.</li>
-                            <li><i class="ph-fill ph-recycle text-green"></i> <strong>Embalagem reciclável:</strong> Cuidamos de você e do parque.</li>
+                            <li><i class="ph-fill ph-orange-slice text-orange"></i> <strong>100% fruta:</strong> Sem
+                                diluição, apenas o melhor da natureza.</li>
+                            <li><i class="ph-fill ph-x-circle text-orange"></i> <strong>0% açúcar:</strong> A doçura vem
+                                da própria fruta.</li>
+                            <li><i class="ph-fill ph-plant text-green"></i> <strong>0% conservantes:</strong> Feito
+                                hoje, para beber hoje.</li>
+                            <li><i class="ph-fill ph-recycle text-green"></i> <strong>Embalagem reciclável:</strong>
+                                Cuidamos de você e do parque.</li>
                         </ul>
                     </div>
                 </div>
@@ -124,7 +138,8 @@
                         <div class="card-icon">♻️</div>
                         <h3>Refil Sustentável</h3>
                         <p class="highlight-text">Garrafa retornável = <strong>-15% no refil</strong></p>
-                        <p>Traga nossa garrafinha de volta e ajude a manter o parque limpo enquanto economiza no seu suco favorito.</p>
+                        <p>Traga nossa garrafinha de volta e ajude a manter o parque limpo enquanto economiza no seu
+                            suco favorito.</p>
                     </div>
 
                     <!-- Promos -->
@@ -151,11 +166,13 @@
                     <h2>🤝 Junte-se à Orange</h2>
                     <p>Quer a Orange no seu evento ou quer ser nosso parceiro?</p>
                 </div>
-                
+
                 <div class="forms-grid">
                     <!-- Parcerias -->
                     <div class="form-wrapper">
-                        <button class="btn btn-outline w-100 mb-3" onclick="toggleForm('formContainerParcerias', this)">Mostrar formulário: Quero ser parceiro</button>
+                        <button class="btn btn-outline w-100 mb-3"
+                            onclick="toggleForm('formContainerParcerias', this)">Mostrar formulário: Quero ser
+                            parceiro</button>
                         <div class="form-container" id="formContainerParcerias" style="display: none;">
                             <h3>Quero ser parceiro</h3>
                             <form id="formParcerias">
@@ -182,7 +199,9 @@
 
                     <!-- Eventos -->
                     <div class="form-wrapper">
-                        <button class="btn btn-outline w-100 mb-3" onclick="toggleForm('formContainerEventos', this)">Mostrar formulário: Leve a Orange para seu Evento</button>
+                        <button class="btn btn-outline w-100 mb-3"
+                            onclick="toggleForm('formContainerEventos', this)">Mostrar formulário: Leve a Orange para
+                            seu Evento</button>
                         <div class="form-container" id="formContainerEventos" style="display: none;">
                             <h3>Leve a Orange para seu Evento</h3>
                             <form id="formEventos">
@@ -224,16 +243,26 @@
                 </div>
                 <div class="faq-container">
                     <div class="faq-item">
-                        <button class="faq-question">O suco tem água adicionada? <i class="ph ph-caret-down"></i></button>
-                        <div class="faq-answer"><p>Não! Nosso suco é 100% extraído diretamente da fruta, sem nenhuma gota de água adicionada.</p></div>
+                        <button class="faq-question">O suco tem água adicionada? <i
+                                class="ph ph-caret-down"></i></button>
+                        <div class="faq-answer">
+                            <p>Não! Nosso suco é 100% extraído diretamente da fruta, sem nenhuma gota de água
+                                adicionada.</p>
+                        </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">Como funciona o refil? <i class="ph ph-caret-down"></i></button>
-                        <div class="faq-answer"><p>Basta trazer a nossa garrafa retornável lavada, e você ganha 15% de desconto no valor do suco novo.</p></div>
+                        <div class="faq-answer">
+                            <p>Basta trazer a nossa garrafa retornável lavada, e você ganha 15% de desconto no valor do
+                                suco novo.</p>
+                        </div>
                     </div>
                     <div class="faq-item">
-                        <button class="faq-question">Quais as formas de pagamento? <i class="ph ph-caret-down"></i></button>
-                        <div class="faq-answer"><p>Aceitamos Pix, cartões de crédito e débito por aproximação.</p></div>
+                        <button class="faq-question">Quais as formas de pagamento? <i
+                                class="ph ph-caret-down"></i></button>
+                        <div class="faq-answer">
+                            <p>Aceitamos Pix, cartões de crédito e débito por aproximação.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -246,7 +275,8 @@
                     <div class="contact-info">
                         <h2>📲 Fale com a gente</h2>
                         <p>Fale com a gente pelo Instagram para respostas rápidas.</p>
-                        <a href="https://www.instagram.com/orangejuice.ibira/" target="_blank" class="btn btn-light instagram-btn">
+                        <a href="https://www.instagram.com/orangejuice.ibira/" target="_blank"
+                            class="btn btn-light instagram-btn">
                             <i class="ph-fill ph-instagram-logo"></i> @orangejuice.ibira
                         </a>
                     </div>
@@ -284,7 +314,9 @@
                 <a href="#parcerias-eventos">Parcerias</a>
                 <a href="#localizacao">Localização</a>
                 <a href="https://www.instagram.com/orangejuice.ibira/" target="_blank">Instagram</a>
-                <a href="https://github.com/rdcl735/orange" target="_blank" style="display: flex; align-items: center; gap: 4px; color: var(--color-orange);"><i class="ph-fill ph-github-logo"></i> GitHub</a>
+                <a href="https://github.com/rdcl735/orange" target="_blank"
+                    style="display: flex; align-items: center; gap: 4px; color: var(--color-orange);"><i
+                        class="ph-fill ph-github-logo"></i> GitHub</a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -303,7 +335,8 @@
             </div>
             <div class="modal-body">
                 <button class="btn btn-oauth btn-google" onclick="login('google')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google"> Entrar com Google
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google">
+                    Entrar com Google
                 </button>
                 <button class="btn btn-oauth btn-facebook" onclick="login('facebook')">
                     <i class="ph-fill ph-facebook-logo"></i> Entrar com Facebook
@@ -311,7 +344,8 @@
                 <button class="btn btn-oauth btn-instagram" onclick="login('facebook')">
                     <i class="ph-fill ph-instagram-logo"></i> Entrar com Instagram
                 </button>
-                <p class="text-small text-muted mt-3 text-center">* O login com Instagram é feito através da plataforma Meta/Facebook.</p>
+                <p class="text-small text-muted mt-3 text-center">* O login com Instagram é feito através da plataforma
+                    Meta/Facebook.</p>
             </div>
         </div>
     </div>
@@ -322,4 +356,5 @@
     <!-- Script principal -->
     <script src="app.js"></script>
 </body>
+
 </html>
