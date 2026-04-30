@@ -9,14 +9,14 @@
 const SUPABASE_URL = 'https://lwayxjikuqdseezynifr.supabase.co';
 const SUPABASE_ANON_KEY = 'sbp_3f3fa1c40942101306c73ae085b6050ea11aa242';
 
-let supabase = null;
+let supabaseClient = null;
 let currentUser = null;
 
 // Tenta inicializar o Supabase com segurança
 function initSupabase() {
     try {
         if (window.supabase && SUPABASE_ANON_KEY !== 'SUA_SUPABASE_ANON_KEY') {
-            supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+            supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
             checkSession();
         }
     } catch (e) {
@@ -149,14 +149,14 @@ window.toggleForm = function(id, btn) {
 // AUTENTICAÇÃO & BANCO DE DADOS
 // ============================================================================
 async function checkSession() {
-    if (!supabase) return;
-    const { data: { session } } = await supabase.auth.getSession();
+    if (!supabaseClient) return;
+    const { data: { session } } = await supabaseClient.auth.getSession();
     if (session) {
         currentUser = session.user;
         updateUI(true);
     }
 
-    supabase.auth.onAuthStateChange((_event, session) => {
+    supabaseClient.auth.onAuthStateChange((_event, session) => {
         currentUser = session?.user || null;
         updateUI(!!session);
         if (session) window.closeModal();
@@ -181,17 +181,89 @@ function updateUI(isLoggedIn) {
     }
 }
 
-window.login = async function(provider) {
-    if (!supabase) return window.showToast("Erro: Supabase não carregado", "error");
-    const { error } = await supabase.auth.signInWithOAuth({
-        provider,
-        options: { redirectTo: window.location.origin }
-    });
-    if (error) window.showToast("Erro ao entrar", "error");
+// --- Alternar abas do modal (Login / Cadastro) ---
+window.switchAuthTab = function(tab) {
+    const loginForm = document.getElementById('authLoginForm');
+    const signupForm = document.getElementById('authSignupForm');
+    const tabLogin = document.getElementById('tabLogin');
+    const tabSignup = document.getElementById('tabSignup');
+    const title = document.getElementById('modalTitle');
+    const subtitle = document.getElementById('modalSubtitle');
+    const toggleText = document.getElementById('authToggleText');
+
+    if (tab === 'signup') {
+        loginForm.style.display = 'none';
+        signupForm.style.display = 'block';
+        tabLogin.classList.remove('active');
+        tabSignup.classList.add('active');
+        title.textContent = 'Criar conta';
+        subtitle.textContent = 'Cadastre-se para aproveitar tudo da Orange.';
+        toggleText.innerHTML = 'Já tem conta? <a href="#" onclick="event.preventDefault(); window.switchAuthTab(\'login\')" style="color:var(--color-orange);font-weight:600;">Entrar</a>';
+    } else {
+        signupForm.style.display = 'none';
+        loginForm.style.display = 'block';
+        tabSignup.classList.remove('active');
+        tabLogin.classList.add('active');
+        title.textContent = 'Entrar';
+        subtitle.textContent = 'Acesse sua conta para enviar formulários e solicitações.';
+        toggleText.innerHTML = 'Não tem conta? <a href="#" onclick="event.preventDefault(); window.switchAuthTab(\'signup\')" style="color:var(--color-orange);font-weight:600;">Cadastre-se</a>';
+    }
+};
+
+// --- Login com e-mail e senha ---
+window.loginEmail = async function(e) {
+    e.preventDefault();
+    if (!supabaseClient) return window.showToast("Erro: Supabase não carregado", "error");
+
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+    const btn = document.getElementById('btnAuthSubmit');
+    btn.textContent = 'Entrando...';
+    btn.disabled = true;
+
+    try {
+        const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
+        if (error) throw error;
+        window.showToast("Login realizado com sucesso!", "success");
+    } catch (err) {
+        window.showToast(err.message || "E-mail ou senha incorretos", "error");
+    } finally {
+        btn.textContent = 'Entrar';
+        btn.disabled = false;
+    }
+};
+
+// --- Cadastro com e-mail e senha ---
+window.signupEmail = async function(e) {
+    e.preventDefault();
+    if (!supabaseClient) return window.showToast("Erro: Supabase não carregado", "error");
+
+    const name = document.getElementById('signupName').value;
+    const email = document.getElementById('signupEmail').value;
+    const password = document.getElementById('signupPassword').value;
+    const btn = document.getElementById('btnSignupSubmit');
+    btn.textContent = 'Criando...';
+    btn.disabled = true;
+
+    try {
+        const { error } = await supabaseClient.auth.signUp({
+            email,
+            password,
+            options: { data: { full_name: name } }
+        });
+        if (error) throw error;
+        window.showToast("Conta criada! Verifique seu e-mail para confirmar.", "success");
+        window.switchAuthTab('login');
+    } catch (err) {
+        window.showToast(err.message || "Erro ao criar conta", "error");
+    } finally {
+        btn.textContent = 'Criar conta';
+        btn.disabled = false;
+    }
 };
 
 window.logout = async () => {
-    await supabase?.auth.signOut();
+    await supabaseClient?.auth.signOut();
     window.location.reload();
 };
 
@@ -210,7 +282,7 @@ async function requireAuthAndSubmit(e, table, data) {
     btn.disabled = true;
 
     try {
-        const { error } = await supabase.from(table).insert([data]);
+        const { error } = await supabaseClient.from(table).insert([data]);
         if (error) throw error;
         window.showToast("Enviado com sucesso!", "success");
         e.target.reset();
