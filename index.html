@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-width=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orange - Suco natural de verdade, direto no parque</title>
     <meta name="description"
         content="Sem açúcar, sem conservantes. Só fruta. Refrescante, saudável e acessível no Parque Ibirapuera.">
@@ -24,12 +24,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Icons (Phosphor Icons) -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
-    <!-- Supabase -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
@@ -334,14 +328,14 @@
                 <p>Faça login para enviar formulários e solicitações.</p>
             </div>
             <div class="modal-body">
-                <button class="btn btn-oauth btn-google" onclick="login('google')">
+                <button class="btn btn-oauth btn-google" onclick="window.login('google')">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google">
                     Entrar com Google
                 </button>
-                <button class="btn btn-oauth btn-facebook" onclick="login('facebook')">
+                <button class="btn btn-oauth btn-facebook" onclick="window.login('facebook')">
                     <i class="ph-fill ph-facebook-logo"></i> Entrar com Facebook
                 </button>
-                <button class="btn btn-oauth btn-instagram" onclick="login('facebook')">
+                <button class="btn btn-oauth btn-instagram" onclick="window.login('facebook')">
                     <i class="ph-fill ph-instagram-logo"></i> Entrar com Instagram
                 </button>
                 <p class="text-small text-muted mt-3 text-center">* O login com Instagram é feito através da plataforma
@@ -353,8 +347,12 @@
     <!-- Toast Notifications -->
     <div id="toastContainer" class="toast-container"></div>
 
+    <!-- CDN Scripts (carregados no final para não bloquear a página) -->
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+
     <!-- Script principal -->
-    <script src="app.js?v=4"></script>
+    <script src="app.js?v=5" defer></script>
 </body>
 
 </html>
