@@ -7,7 +7,7 @@
 // CONFIGURAÇÃO DO SUPABASE
 // ============================================================================
 const SUPABASE_URL = 'https://lwayxjikuqdseezynifr.supabase.co';
-const SUPABASE_ANON_KEY = 'sbp_3f3fa1c40942101306c73ae085b6050ea11aa242';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx3YXl4amlrdXFkc2VlenluaWZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc0ODc2MDIsImV4cCI6MjA5MzA2MzYwMn0.aOW0TSqav4mjFfbv07BKkDB4Ns1pfWkQ2x_FYBq2IcA';
 
 let supabaseClient = null;
 let currentUser = null;
