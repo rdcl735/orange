@@ -57,7 +57,7 @@
             </nav>
 
             <div class="auth-section" id="authSection">
-                <button class="btn btn-outline" id="btnLoginModal">Entrar</button>
+                <button class="btn btn-outline" id="btnLoginModal" onclick="window.openModal()">Entrar</button>
             </div>
         </div>
     </header>
@@ -326,9 +326,9 @@
 
     <!-- Modals -->
     <!-- Login Modal -->
-    <div class="modal-overlay" id="loginModal">
+    <div class="modal-overlay" id="loginModal" onclick="if(event.target === this) window.closeModal()">
         <div class="modal-content">
-            <button class="modal-close" id="closeLoginModal"><i class="ph ph-x"></i></button>
+            <button class="modal-close" id="closeLoginModal" onclick="window.closeModal()"><i class="ph ph-x"></i></button>
             <div class="modal-header">
                 <h2>Bem-vindo à Orange</h2>
                 <p>Faça login para enviar formulários e solicitações.</p>
